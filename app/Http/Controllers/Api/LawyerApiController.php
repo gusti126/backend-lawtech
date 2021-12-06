@@ -14,7 +14,7 @@ class LawyerApiController extends Controller
 {
     public function index()
     {
-        $data = User::get();
+        $data = User::orderBy('id', 'desc')->limit(4)->get();
 
         return response()->json(['data' => $data]);
     }
