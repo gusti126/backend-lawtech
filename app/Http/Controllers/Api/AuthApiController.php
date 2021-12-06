@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\HukumKategori;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,5 +73,11 @@ class AuthApiController extends Controller
             'data' => $user,
             'token' => $token
         ], 200);
+    }
+    public function kategori()
+    {
+        $data = HukumKategori::get();
+
+        return response()->json(['data' => $data], 200);
     }
 }
