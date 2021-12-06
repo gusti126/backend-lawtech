@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\PengalamanKerja;
 use App\Models\RegisLawyer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class LawyerApiController extends Controller
 {
+    public function index()
+    {
+        $data = User::get();
+
+        return response()->json(['data' => $data]);
+    }
     public function registerLawyer(Request $request)
     {
         $data = $request->all();

@@ -45,7 +45,8 @@ Route::post('komentar-create', [KomentarApiController::class, 'create'])->middle
 Route::get('komentar-detail/{id}', [KomentarApiController::class, 'show']);
 Route::get('komentar-hapus/{id}', [KomentarApiController::class, 'destroy'])->middleware('auth:sanctum');
 
-// resgister lawyer
+//  lawyer
+Route::get('lawyer-register', [LawyerApiController::class, 'index']);
 Route::post('lawyer-register', [LawyerApiController::class, 'registerLawyer'])->middleware('auth:sanctum');
 Route::get('lawyer-register-cek', [LawyerApiController::class, 'cekStatus'])->middleware('auth:sanctum');
 Route::post('lawyer-pengalaman-kerja-create', [LawyerApiController::class, 'createPengalamanKerja'])->middleware('auth:sanctum');
