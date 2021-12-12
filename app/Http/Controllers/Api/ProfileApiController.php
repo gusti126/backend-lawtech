@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileApiController extends Controller
 {
+    public function myProfile()
+    {
+        $data = User::find(Auth::user()->id);
+
+        return response()->json(['data' => $data], 200);
+    }
     public function myForum()
     {
         $id = Auth::user()->id;
@@ -50,5 +56,4 @@ class ProfileApiController extends Controller
 
         return response()->json(['data' => $user], 200);
     }
-    
 }

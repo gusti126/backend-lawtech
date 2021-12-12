@@ -74,6 +74,7 @@ class AuthApiController extends Controller
             'token' => $token
         ], 200);
     }
+
     public function kategori()
     {
         $data = HukumKategori::get();

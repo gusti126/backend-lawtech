@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthApiController::class, 'login']);
 Route::post('register', [AuthApiController::class, 'register']);
+Route::get('myProfile', [ProfileApiController::class, 'myProfile']);
 Route::get('kategori', [AuthApiController::class, 'kategori']);
 
 Route::get('my-forum', [ProfileApiController::class, 'myForum'])->middleware('auth:sanctum');
