@@ -16,18 +16,22 @@ class ForumApiController extends Controller
 {
     public function index()
     {
-        $data = ForumHukum::orderBy('id', 'desc')->with('kategori', 'user')->withCount('like')->get();
+        $data = ForumHukum::orderBy('id', 'desc')->with('kategori', 'user')->withCount('like', 'jawaban')->get();
 
         return response()->json(['data' => $data], 200);
     }
     public function show($id)
     {
-        $forum = ForumHukum::with('kategori', 'user', 'jawaban.user')->find($id);
+        $forum = ForumHukum::with('kategori', 'user')->find($id);
         if (!$forum) {
             return response()->json(['message' => 'forum not found'], 404);
         }
+        $jawaban = Jawaban::where('forum_hukum_id', $forum->id)->with('user', 'komentar')->withCount('komentar')->get();
 
-        return response()->json(['data' => $forum], 200);
+        $data['forum'] = $forum;
+        $data['jawaban'] = $jawaban;
+
+        return response()->json(['data' => $data], 200);
     }
 
     public function create(Request $request)
