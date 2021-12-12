@@ -16,7 +16,7 @@ class ForumApiController extends Controller
 {
     public function index()
     {
-        $data = ForumHukum::orderBy('id', 'desc')->with('kategori')->withCount('like')->get();
+        $data = ForumHukum::orderBy('id', 'desc')->with('kategori', 'user')->withCount('like')->get();
 
         return response()->json(['data' => $data], 200);
     }
