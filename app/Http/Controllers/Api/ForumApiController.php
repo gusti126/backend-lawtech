@@ -22,7 +22,7 @@ class ForumApiController extends Controller
     }
     public function show($id)
     {
-        $forum = ForumHukum::with('kategori', 'user')->find($id);
+        $forum = ForumHukum::with('kategori', 'user')->withCount('like', 'jawaban')->find($id);
         if (!$forum) {
             return response()->json(['message' => 'forum not found'], 404);
         }
