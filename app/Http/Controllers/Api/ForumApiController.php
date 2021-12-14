@@ -26,7 +26,7 @@ class ForumApiController extends Controller
         if (!$forum) {
             return response()->json(['message' => 'forum not found'], 404);
         }
-        $jawaban = Jawaban::where('forum_hukum_id', $forum->id)->with('user', 'komentar')->withCount('komentar')->get();
+        $jawaban = Jawaban::where('forum_hukum_id', $forum->id)->with('user', 'komentar.user')->withCount('komentar')->get();
 
         $data['forum'] = $forum;
         $data['jawaban'] = $jawaban;

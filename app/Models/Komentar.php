@@ -21,4 +21,8 @@ class Komentar extends Model
     {
         return $this->belongsTo('App\Models\Jawaban');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
