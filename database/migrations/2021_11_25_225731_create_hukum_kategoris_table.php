@@ -16,6 +16,7 @@ class CreateHukumKategorisTable extends Migration
         Schema::create('hukum_kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

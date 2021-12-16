@@ -12,10 +12,21 @@ use Illuminate\Support\Facades\Validator;
 
 class LawyerApiController extends Controller
 {
-    public function index()
+    public function index($limit)
     {
-        $data = User::orderBy('id', 'desc')->limit(4)->get();
+        $data = User::where('role', 'lawyer')->orderBy('id', 'desc')->ge();
+        if ($limit) {
+            $data = User::orderBy('id', 'desc')->limit($limit)->get();
+        }
 
+        return response()->json(['data' => $data]);
+    }
+    public function detail($id)
+    {
+        $data = User::where('role', 'lawyer')->find($id);
+        if (!$data) {
+            return response()->json(['message' => 'data id lawyer not found'], 404);
+        }
         return response()->json(['data' => $data]);
     }
     public function registerLawyer(Request $request)

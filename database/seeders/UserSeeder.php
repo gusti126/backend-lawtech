@@ -30,13 +30,21 @@ class UserSeeder extends Seeder
             'email' => 'Patur@gmail.com',
             'fokus' => 'Hukum Tata Negara',
             'password' => Hash::make('admin12345'),
-            'role' => 'lawyers'
+            'role' => 'lawyer'
         ]);
 
         for ($i = 0; $i < 10; $i++) {
             User::create([
                 'name' => $faker->name,
                 'email' => $faker->email,
+                'password' => Hash::make('admin12345'),
+            ]);
+        }
+        for ($i = 0; $i < 10; $i++) {
+            User::create([
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'role' => 'lawyer',
                 'password' => Hash::make('admin12345'),
             ]);
         }
