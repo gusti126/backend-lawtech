@@ -14,7 +14,7 @@ class LawyerApiController extends Controller
 {
     public function index()
     {
-        $data = User::where('role', 'lawyer')->orderBy('id', 'desc')->ge();
+        $data = User::where('role', 'lawyer')->orderBy('id', 'desc')->get();
 
         return response()->json(['data' => $data]);
     }
