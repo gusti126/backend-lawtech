@@ -48,7 +48,6 @@ Route::get('komentar-hapus/{id}', [KomentarApiController::class, 'destroy'])->mi
 
 //  lawyer
 Route::get('lawyer', [LawyerApiController::class, 'index']);
-Route::get('lawyer/{limit}', [LawyerApiController::class, 'index']);
 Route::get('lawyer-detail/{id}', [LawyerApiController::class, 'detail']);
 Route::post('lawyer-register', [LawyerApiController::class, 'registerLawyer'])->middleware('auth:sanctum');
 Route::get('lawyer-register-cek', [LawyerApiController::class, 'cekStatus'])->middleware('auth:sanctum');

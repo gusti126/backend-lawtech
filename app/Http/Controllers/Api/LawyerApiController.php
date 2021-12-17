@@ -12,12 +12,9 @@ use Illuminate\Support\Facades\Validator;
 
 class LawyerApiController extends Controller
 {
-    public function index($limit)
+    public function index()
     {
         $data = User::where('role', 'lawyer')->orderBy('id', 'desc')->ge();
-        if ($limit) {
-            $data = User::orderBy('id', 'desc')->limit($limit)->get();
-        }
 
         return response()->json(['data' => $data]);
     }
