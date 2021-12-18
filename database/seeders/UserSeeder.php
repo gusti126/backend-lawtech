@@ -40,13 +40,5 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin12345'),
             ]);
         }
-        for ($i = 0; $i < 10; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'role' => 'lawyer',
-                'password' => Hash::make('admin12345'),
-            ]);
-        }
     }
 }
