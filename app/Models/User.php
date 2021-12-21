@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\ForumHukum');
     }
+
+    public function notif()
+    {
+        return $this->hasMany('App\Models\NotifUser', 'to_user_id');
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthApiController;
 use App\Http\Controllers\Api\ForumApiController;
 use App\Http\Controllers\Api\KomentarApiController;
 use App\Http\Controllers\Api\LawyerApiController;
+use App\Http\Controllers\Api\NotifikasiUserController;
 use App\Http\Controllers\Api\ProfileApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthApiController::class, 'login']);
 Route::post('register', [AuthApiController::class, 'register']);
-Route::get('myProfile', [ProfileApiController::class, 'myProfile'])->middleware('auth:sanctum');;
+Route::get('myProfile', [ProfileApiController::class, 'myProfile'])->middleware('auth:sanctum');
+Route::get('my-notif', [NotifikasiUserController::class, 'listNotif'])->middleware('auth:sanctum');
+Route::post('notif-create', [NotifikasiUserController::class, 'create'])->middleware('auth:sanctum');
+
 Route::get('kategori', [AuthApiController::class, 'kategori']);
 
 Route::get('my-forum', [ProfileApiController::class, 'myForum'])->middleware('auth:sanctum');

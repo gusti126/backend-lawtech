@@ -10,11 +10,11 @@ class NotifUser extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'title', 'deskripsi', 'link', 'notif_watched'
+        'to_user_id', 'title', 'deskripsi', 'link', 'notif_watched'
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'to_user_id', 'id');
     }
 }

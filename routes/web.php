@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Admin\LivewireKategori;
 use App\Http\Livewire\Admin\User;
 use App\Http\Livewire\Front\ForumDiksusi;
 use App\Http\Livewire\Front\Home;
@@ -24,8 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('dashboard', function () {
     return view('layouts.admin');
 })->middleware('admin');
+
 // admin page
 Route::get('user', User::class)->name('user-livewire')->middleware('admin');
+Route::get('admin/kategori', LivewireKategori::class)->name('kategori-livewire')->middleware('admin');
 
 require __DIR__ . '/auth.php';
 

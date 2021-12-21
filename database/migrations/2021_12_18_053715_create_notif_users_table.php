@@ -15,7 +15,7 @@ class CreateNotifUsersTable extends Migration
     {
         Schema::create('notif_users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('to_user_id')->constrained('users')->onDelete('cascade');
             $table->string('title');
             $table->string('deskripsi');
             $table->string('link')->nullable();

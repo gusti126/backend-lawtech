@@ -46,6 +46,7 @@ class AuthApiController extends Controller
             ], 401);
         }
     }
+
     public function register(Request $request)
     {
         $rules = [
@@ -66,13 +67,12 @@ class AuthApiController extends Controller
         $user = User::create($data);
         $token = $user->createToken('authToken')->plainTextToken;
 
-
         return response()->json([
             'success' => true,
             'message' => 'register berhasil',
             'data' => $user,
             'token' => $token
-        ], 200);
+        ], 201);
     }
 
     public function kategori()
